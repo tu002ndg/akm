@@ -1,0 +1,13 @@
+@charset "uff-8";
+#ll {
+    width: 240px;
+    margin: 50px auto 0px auto;
+    padding: 30px;
+    border: 1px solid #AAAAAA;
+}
+
+#ll h2 {
+    margin: 0px;
+    padding: 0px 0px 10px 0px;
+    color: darkred;
+}

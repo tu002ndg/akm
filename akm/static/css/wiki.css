@@ -1,0 +1,58 @@
+@import url("base.css");
+
+#wikiBrowseArticles .panel-body {
+    max-height: auto;
+    overflow-y: scroll;
+}
+
+ #btnSearchLocal {
+ z-index: 99;
+ position: absolute;
+ right: 0.15em;
+ height: 85%;
+ top: 0.2em;
+ margin-top: 0em;
+ border-radius: 0.5em;
+ background-color: #337AB7; 
+ color:white;
+ }
+
+#newWikiArcticle {
+    border-radius: 0.5em;
+}
+
+#searchLocal input {
+    text-align: left;
+    width: 25em;
+    border-radius: 0.5em;
+}
+
+ #ddlCategories {
+    width: 20em;
+    border-radius: 0.5em;
+}
+
+#wikiTags .label {
+    border-radius: 2em;
+    font-family: cursive;
+    font-size: 0.9em;
+    font-weight:lighter;
+    margin-right: 0.5em;
+   }
+
+#wikiActionPanel .title {
+
+    padding-bottom: 0.5em;
+}
+
+#wikiActionPanel .dropdown-menu {
+    max-height: 20em;
+    overflow-y: scroll;
+}
+
+#pgWikiBrowseArticles .pagination {
+    padding: 0;
+    margin: 0;
+}
+
+

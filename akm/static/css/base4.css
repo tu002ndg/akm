@@ -1,0 +1,291 @@
+/* @charset "uff-8"; */
+body {
+
+    padding-top:  9rem;
+    background-color: #E2E4E6; /*wheat; /* #D6DADC; /* bisque; */
+    color: black;
+    font-family:inherit;
+}
+/* nav */
+
+.navbar-default {
+background-color: #006A9C; /* #0079BF; */ 
+     /* border-radius: 0.3em; */
+  }
+
+
+.navbar-header {
+   background-color:   #006A9C;;
+   height: 5.5rem;
+  }
+
+#navMenuInfoBar {
+    height: 2em;
+    padding: 0.3em 1em 0.5em 1em;
+    margin: 0 0.8em 0.4em 0.8em;
+    background-color: #E6E6E6; /*#A1C3D7; /*#E2E4E6; /*#D6DADC; /* #0079BF; */
+    border-radius: 0.3em;
+   }
+
+#navMenuInfoBar h4 {
+    margin-top: 0;
+    color: black;
+    font-size: 1em;
+}
+
+#navMenuInfoBar h4 #navMenuInfoBarTitle {
+    font-style: italic;
+    font-weight: lighter;
+    color:#006A9C;
+} 
+
+#navMenuInfoBar h4 #navMenuInfoBarApp {
+    color: black;
+  } 
+
+
+
+.brand-logo img {
+    height: 4rem;
+    padding-left: 0.2em;
+    margin-top: 0.5em;
+ 
+   }
+
+nav form#searchGlobal {
+    float: left;
+    padding: 0.7em 0.3em 0.3em 0;
+
+
+}
+
+nav form#searchGlobal .input-group .form-control:first-child {
+    border-radius: 0.5em;
+}
+
+nav form#searchGlobal input {
+    font-size: 1.2em;
+    min-width: 15em;
+}
+
+nav form#searchGlobal #btn-search-global {
+    z-index: 99;
+    position: absolute;
+    right: 0.15em;
+    height: 85%;
+    top: 0.2em;
+    margin-top: 0em;
+    border-radius: 0.5em;
+    background-color: #006A9C; 
+    color:white;
+}
+
+nav #nav-menu {
+    font-family: cursive;
+    font-size: 1.2em;
+    font-weight:normal;
+    margin-top: 0.2em;
+  }
+
+  /* nav options */
+#nav-options {
+    float: right;
+    padding: 0.5em;
+ 
+ }
+
+ #nav-options .dropdown-menu, button.user-profile, button.toggleNavExtMenu  {
+    border-radius: 0.5em;
+    font-size: 1.2em;
+    font-weight:normal;
+    color:   rgb(170, 208, 231); 
+  }
+#nav-options .dropdown-menu .logout {
+    color: red;
+}
+
+.navbar-default .navbar-nav li a, .navbar-default .navbar-nav li a:visited {
+    color: rgb(170, 208, 231);
+}
+
+/* navigation on main menu */
+
+.navbar-default .navbar-nav > .active > a {
+    background-color: transparent;
+    color: white;
+    /*
+    padding-bottom: 0.3em;
+    border-bottom: 0.1em solid  white;
+    */
+   
+}
+
+
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > li > a:hover {
+  background-color: transparent;
+  color: white;
+  /*font-size: 1.2em; */
+  padding-bottom: 0.3em;
+  border-bottom: 0.2em solid  white;
+}
+
+/*
+.navbar-default .navbar-nav > .active > a:hover {
+    font-size: inherit;
+}
+*/
+
+/*nav ext menu */
+
+#navExtMenu {
+    min-height: 15em;
+    padding: 0.5em 1em 0.5em 1em;
+    margin: 0.5em;
+    background-color: transparent; /* #E2E4E6; /*#D6DADC; /* #0079BF; */
+    border-radius: 0.3em;
+}
+
+
+
+#navExtMenuHeader {
+    float: left;
+    font-family: cursive;
+    padding: 0em;
+    color: white;
+    background-color: transparent;
+    
+}
+
+#navExtMenuContent {
+    float: right;
+    width: 88%;
+}
+
+
+
+#navExtMenuContent .basic-content {
+    float: left;
+    text-align: center;
+    max-width: 85%;    
+
+}
+
+#navExtMenuContent .basic-content .btn {
+    width: 29em;
+    border-radius: 1em;
+    padding: 0;
+    margin-bottom: 1em;
+    border: 0.1em solid white;
+    background-color:transparent;
+    color: white;
+    font-size: inherit;
+}
+
+#navExtMenuContent .basic-content li >a:hover {
+    color: #006A9C;
+    background-color:white;
+}
+
+
+#navExtMenuContent .basic-content >.btn h4, .secondary-content .btn {
+    font-family: cursive;
+    color:#E2E4E6;
+}
+
+#navExtMenuContent .basic-content >.btn h5 {
+    font-family: inherit;
+    color: E2E4E6;
+}
+
+
+#navExtMenuContent .secondary-content {
+    z-index: 99;
+    position: absolute;
+    right: 1em;
+}
+
+#navExtMenuContent .secondary-content .btn {
+   width: 10em;
+   border-radius: 0.5em;
+   margin-bottom: 1em;
+   border: 0.1em solid white;
+   font-size: 1.1em;
+   font-weight: lighter; 
+}
+
+
+#bestOfColor {
+    background-color:   #0079BF; 
+    background-color:   #2F92CA;
+    background-color:   #4C94BE;
+    background-color:   #57A5D2;
+    background-color:   #0067A3;
+    background-color:   rgb(19, 145, 187);
+    background-color:   #59A9C6;
+    background-color:   #002457;
+    background-color:   #00695C;
+    background-color:   #006A9C;
+}
+
+/*
+#navbar-app-name  {
+    background-color:rgb(178, 183, 187);  
+    border-radius: 0.5em;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: -2rem 0rem 0.25rem 2rem;
+    color: black;
+    height: 2.8em;
+    padding: 1em;
+  }
+
+ #navbar-app-action  {
+    background-color:rgb(178, 183, 187);
+    border-radius: 0.5em;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: -2rem 2rem 0.25rem 0rem;
+    color: black;
+    height: 2.8em;
+    padding: 0.5em;
+
+ }
+
+*/
+
+
+/* --- настройки для базовой формы */
+/*
+.form-field {
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}
+
+.form-field .help {
+    font-size: smaller;
+    font-style: italic;
+}
+.form-field .label {
+    color: darkblue;
+    margin-bottom: 2px;
+    padding: 0px;
+}
+.form-field .control input[type=text],
+.form-field .control input[type=name],
+.form-field .control input[type=password],
+.form-field .control input[type=number],
+.form-field .control input[type=file],
+.form-field .control textarea, 
+.form-field .control select {
+    width: 100%;
+}
+.submit-button button[type=submit] {
+    width: 100%;
+}
+
+.error-list .error-description {
+    color: #ff0000;
+}
+
+*/

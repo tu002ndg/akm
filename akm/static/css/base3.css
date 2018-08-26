@@ -1,0 +1,169 @@
+﻿/* @charset "uff-8"; */
+body {
+    color: black;
+    background-color:bisque; /*lightgrey; */
+    margin-top: 13em; 
+   
+}
+
+/*
+nav {
+    margin: 0em 2em 0 2em; 
+}
+  row 1*/
+ /*
+  nav.btn-group {
+    margin: 0.8rem 2rem 0 0;
+  }
+  
+  @media(max-width: 48em){
+    nav.btn-group {
+      position: absolute;
+      top: 0;
+      right: 4em;
+    }
+  }
+*/
+/*nav*/
+
+/*
+nav {
+    max-height: 8.7em;
+}
+*/
+  /*custom nav*/
+
+
+#navbar-app-name  {
+    background-color:rgb(178, 183, 187); /* rgb(19, 145, 187); /*rgb(157, 206, 23); */
+    border-radius: 0.5em;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: -2rem 0rem 0.25rem 2rem;
+    color: black;
+    height: 2.8em;
+    padding: 1em;
+  }
+
+ #navbar-app-action  {
+    background-color:rgb(178, 183, 187);
+    border-radius: 0.5em;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: -2rem 2rem 0.25rem 0rem;
+    color: black;
+    height: 2.8em;
+    padding: 0.5em;
+
+ }
+
+nav #nav-menu {
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    font-family: cursive;
+    font-size: 1.2em;
+    font-weight:normal;
+ 
+ }
+
+nav.navbar-default {
+     background-color:#FFF;
+     border-radius: 0em;
+  }
+
+
+nav.navbar-header {
+   padding-left:1em;
+   background-color:#FFF;
+  }
+
+nav.navbar-header h1, h2 {
+    color:darkred; 
+    font-weight: bolder;
+    font-family: cursive;
+    font-size: 3.1em;
+    margin-bottom: -0.8rem;
+
+}
+nav.navbar-header h4,h5 {
+    color: black;  
+    font-weight:lighter;
+    font-family: fantasy;
+    font-size: 1.3em;
+    padding-bottom:1.2rem;
+    margin-bottom: 0rem;
+
+}
+
+
+nav form#search {
+    float: right;
+    padding: 0em;
+    margin-top: 1em;
+}
+
+nav form#search .input-group .form-control:first-child {
+    border-radius: 0.5em;
+}
+
+nav form#search input {
+    min-width: 30em;
+}
+nav #btn-search {
+    background-color: rgb(19, 145, 187);
+    color: white;
+}
+
+nav #tweet {
+    margin: 1em 1em 0em 1em;
+  }
+
+#nav-options {
+    margin-top: 1em;
+    margin-left: 1em;
+  }
+
+#nav-options button.thumbnail {
+    margin: 0;
+    padding: 0;
+  }
+  
+#nav-options img {
+    max-height: 2.4em;
+    border-radius: 0.3em;
+  }
+
+
+/* --- настройки для базовой формы */
+
+.form-field {
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}
+
+.form-field .help {
+    font-size: smaller;
+    font-style: italic;
+}
+.form-field .label {
+    color: darkblue;
+    margin-bottom: 2px;
+    padding: 0px;
+}
+.form-field .control input[type=text],
+.form-field .control input[type=name],
+.form-field .control input[type=password],
+.form-field .control input[type=number],
+.form-field .control input[type=file],
+.form-field .control textarea, 
+.form-field .control select {
+    width: 100%;
+}
+.submit-button button[type=submit] {
+    width: 100%;
+}
+
+.error-list .error-description {
+    color: #ff0000;
+}
+

@@ -1,0 +1,28 @@
+
+section#intro-header {
+  background-image: url(../imgs/landscape.jpg);
+  background-size: cover;
+}
+
+section#intro-header .wrap-headline {
+  position: relative;
+  padding-top: 7%;
+  padding-bottom: 36%;
+}
+
+section#intro-header h1,h2 {
+  color: #FFF;
+  font-family: cursive;
+  font-size: 2.5em;
+  font-weight:normal;
+}
+
+section#intro-header hr {
+  width: 20%;
+}
+
+section#intro-header .btn {
+  border: none;
+  background-color:rgba(255, 255, 255, 0.8);
+}
+

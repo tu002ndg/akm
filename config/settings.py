@@ -123,5 +123,3 @@ MEDIA_URL = '/media/'
 # folders for storing static files at the project level 
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'akm/static'),)
 
-# folder for storing uploaded files
-MEDIA_ROOT = os.path.join(BASE_DIR,'akm/uploads')

@@ -10,8 +10,8 @@
 {% block content %}
     <header>
          <!-- main Menu navigation bar -->
-            <nav class="navbar navbar-default navbar-fixed-top"> 
-                
+        <nav class="navbar navbar-default navbar-fixed-top"> 
+        <div class="bg-primary">
                 <div class="navbar-header">
                     <a class="brand-logo" href="{% url 'main' %}"> 
                         <img src="{% static 'imgs/logos/AkmLogo3D-black.png' %}" 
@@ -21,10 +21,10 @@
                             
                 <div class="collapse navbar-collapse">
                     <!-- site global search panel -->
-                    <form id="searchGlobal" role="search" >
+                    <form id="searchGlobal" role="search">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Поиск...">
-                            <button id="btnSearchGlobal" type="submit" class="btn btn-md">
+                            <button id="btnSearchGlobal" type="submit" class="btn btn-md bg-primary">
                                 <span class="glyphicon glyphicon-search" 
                                         aria-hidden="true">
                                 </span>
@@ -81,10 +81,10 @@
                     
                 <!-- breadcrumb -->
                 <ol id="navMenuBreadcrumb" class="breadcrumb">
-                        <span id="navMenuBreadcrumbTitle">Информационный сайт&nbsp; &nbsp;</span>
-                        <span class="glyphicon glyphicon-th" aria-hidden="true">&nbsp;</span>
-                        <li><a href="{% url 'main' %}">Главная</a></li>
-                    </ol>
+                    <span id="navMenuBreadcrumbTitle">Информационный сайт&nbsp; &nbsp;</span>
+                    <span class="glyphicon glyphicon-th" aria-hidden="true">&nbsp;</span>
+                    <li><a href="{% url 'main' %}">Главная</a></li>
+                </ol>
                 <!-- end of breadcrumb -->
         
                 <!-- ext menu -->
@@ -96,7 +96,7 @@
                     </div>
                     
                     <!-- ext-menu-content -->
-                    <div id="navExtMenuContent">
+                    <div id="navExtMenuContent" >
                         <!-- ext-menu-basic-content -->
                         <ul class="basic-content list-inline list-unstyled">
                             <li>
@@ -142,7 +142,7 @@
                                         в сопровождамых системах
                                     </h5>
                             </a></li>
-                            <li><a href="#adm" role="button" class="btn">
+                            <li><a href="/admin/" role="button" class="btn">
                                 <h4>АДМИНКА</h4>
                                 <h5>
                                     Администрирование сайта
@@ -159,9 +159,9 @@
                         </ul> <!-- end of secondary-content -->
                     </div> <!-- end of navExtMenuContent -->
                 </div> <!-- end of navExtMenu-->
+            </div>                
             </nav> <!-- End of main menu-->
         </header>    
-
         {% block main %}{% endblock %}
     
 {% block footer %}
@@ -183,9 +183,9 @@
     <div class="col-sm-offset-1 col-sm-2">
         <h5>О проекте</h5>
         <ul class="list-unstyled">
-            <li><a href="#">О нас</a></li>
-            <li><a href="#">Сотрудники</a></li>
             <li><a href="#">Документация</a></li>                                        
+            <li><a href="#">Сотрудники</a></li>
+            <li><a href="#">О нас</a></li>
         </ul>
     </div>
     <div class="col-sm-2">

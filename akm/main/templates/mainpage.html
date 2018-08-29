@@ -1,0 +1,230 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+{% block title %}
+    AkM | Главная
+{% endblock %}
+{% block main %}
+<!-- ================================================================================= -->
+<!--                                 MAIN                                              -->
+<!-- ================================================================================= -->
+<!-- basic Content -->
+<div id="basicContent" class ="row">
+        <!-- asideContent col -->
+        <aside id="asideContent" class="col-sm-2 text-left">
+            
+            <div id="content-nav-side-panel" class="panel panel-primary" 
+                data-spy="affix" data-offset-top="30">
+                <div class="panel-heading" >
+                    <div class="panel-title">             
+                        <span class="glyphicon glyphicon-home" 
+                            aria-hidden="true"></span> <a href="#top">&nbsp;Главная</a>                        
+                    </div>
+                       <!-- site local search panel -->
+                        <!--form id="searchLocal" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Поиск в разделе...">
+                                <button id="btnSearchLocal" type="submit" class="btn btn-md">
+                                        <span class="glyphicon glyphicon-search" 
+                                                aria-hidden="true">
+                                        </span>
+                                    </button>
+                            </div>
+                        </form-->  
+                   
+                </div>
+    
+                <!-- Навигационное меню по разделам контента -->
+                <div id="navContentSidePanel" class="panel-body">
+                    <ul class="list-unstyled">                        <!--li class="active">
+                            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                            &nbsp;<a href="index5.html">Главная</a>
+                        </li-->
+                            <li><a href="#infoBoard">Инфо</a></li>
+                            <li><a href="#top">Экстренное</a></li>
+                            <li><a href="#usefullLinksSidePanel">Полезное</a></li>
+                            <li><a href="#top">Новости</a></li>
+                            
+                        <!--li><a href="#features">График</a></li>
+                        <li><a href="#pricing">Faq</a></li-->
+                    </ul>
+                </div>
+            </div> <!-- end of navContentSidePanel -->
+        
+          
+    
+                
+                <!-- news-side-panel -->
+            <div id="newsSidePanel" class="panel panel-success">
+                <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a href="#news">
+                                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;
+                            Новости
+                                &nbsp;<span class="badge" style="margin-top:-1em">7</span></a>
+                        </h3>
+                </div>
+                <div class="panel-body">
+                        <ul class="list-unstyled">
+                         <li>
+                           <h5>June 23, 2008</h5>
+                           <h6><a href="#">Tempus in, lacus. Duis tempor posuere diam. Suspendisse vel tellus quis nunc malesuada porta. &#8230;</a></h6>
+                         </li>
+                         <li>
+                           <h5>March 4, 2008</h5>
+                           <h6><a href="#">Nulla id magna sed dolor sollicitudin laoreet. tempus in, lacus. Duis tempor posuere diam&#8230;</a></h6>
+                         </li>
+                         <li>
+                           <h5>February 18, 2008</h5>
+                           <h6><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. &#8230;</a></h6>
+                         </li>
+                         <li>
+                           <h5>February 12, 2008</h5>
+                           <h6><a href="#"> Sed dolor sollicitudin laoreet. tempus in, lacus. Duis tempor posuere diam. Suspendisse </a></h6>
+                         </li>
+                         <li>
+                           <h5>February 1, 2008</h5>
+                           <h6><a href="#">Ipsum dolor sit amet, consectetuer adipiscing elit. In nec &#8230;</a></h6>
+                         </li>
+                        </ul>
+                </div>
+            </div> <!-- end of newsSidePanel -->
+        </aside> <!-- end of asideContent col -->
+    
+        <aside id="asideContentExt" class="col-sm-3 text-left pull-right">
+            <!-- hot-phone-side-pane -->
+            <div id="hotPhoneSidePanel" class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Экстренные телефоны</h3>
+                </div>
+                <div class="panel-body">
+                    01 - пожарная охрана
+                    02 - милиция
+                    03 - скорая медицинская помощь
+                    04 - "Мосгаз"
+                    051 - Московская служба психологической помощи населению
+                     (многоканальный круглосуточный телефон доверия)
+                    (495) 937-99-11 - служба спасения
+                    (495) 261-35-42, (495) 261-63-66 - водопровод, канализация
+                     (аварии на городских подземных коммуникациях)
+                    (495) 688-22-52 - бюро регистрации несчастных случаев
+                </div>
+            </div> <!-- end of hotPhoneSidePanel -->
+            <!-- usefull-links-side-panel -->
+            <div id="usefullLinksSidePanel" class="panel panel-info">
+                    <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <a href="#usefull-links">
+                                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;
+                                    Полезные ссылки</a>
+                                </h3>
+                    </div>
+                    <div class="panel-body">
+                                <ul class="list-unstyled">
+                                 <li>
+                                   <h5>Приложения</h5>
+                                   <h6><a href="#">Tempus in, lacus. Duis tempor posuere diam. Suspendisse vel tellus quis nunc malesuada porta. &#8230;</a></h6>
+                                   <h6><a href="#">Nulla id magna sed dolor sollicitudin laoreet. tempus in, lacus. Duis tempor posuere diam&#8230;</a></h6>
+                                   <h5>February 18, 2008</h5>
+                                   <h6><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. &#8230;</a></h6>
+                                 </li>
+                                 <li>
+                                   <h5>Ресурсы</h5>
+                                   <h6><a href="#"> Sed dolor sollicitudin laoreet. tempus in, lacus. Duis tempor posuere diam. Suspendisse </a></h6>
+                                   <h6><a href="#">Ipsum dolor sit amet, consectetuer adipiscing elit. In nec &#8230;</a></h6>
+                                 </li>
+                                </ul>
+                    </div>
+                </div> <!-- end of usefullLinksSidePanel -->        
+        </aside> <!-- end of asideContentExt col -->
+    
+        <!-- main content -->
+        <div id="mainContent" class="col-sm-7">
+            <!--data-spy="scroll" data-target="#nav-content-side"-->	  
+            <section id="infoBoard"> 
+                <!-- Информационная доска -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                                <span class="glyphicon glyphicon-pushpin" 
+                                aria-hidden="true"></span>&nbsp;Информационная доска
+                        </div>
+                    </div>                    
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-2 crop">
+                                <a href="#">
+                                 <img src="../static/imgs/Logo.JPG" class="img-responsive">
+                                </a>Телефоны сотрудников отдела
+                            </div> 
+                            <div class="col-sm-2 crop">
+                                <a href="#">
+                                 <img src="../static/imgs/djangopython.jpg" class="img-responsive">
+                                </a>
+                                Django-Python
+                            </div>
+                            <div class="col-sm-2 crop">
+                                <a href="#">
+                                     <img src="../static/imgs/Grafik.jpg" class="img-responsive">
+                                </a>
+                                График сотрудников отдела
+                            </div>
+                            <div class="col-sm-2 crop">
+                                 <img src="../static/imgs/mock_ipad.jpg" class="img-responsive">
+                                 Новые технологи учета
+                            </div>
+                            <div class="col-sm-2 crop">
+                                <img src="../static/imgs/mock_ipad.jpg" class="img-responsive">
+                                Маршруты транспорта
+                            </div>
+                            <div class="col-sm-2 crop">
+                                <img src="../static/imgs/myhome.jpg" class="img-responsive">
+                                My Home
+                            </div> 
+                        <!--/div>
+                        <div class="row"-->
+                            <div class="col-sm-2 crop">
+                                <a href="#">
+                                <img src="../static/imgs/templatemo_menu_05_b.jpg" class="img-responsive">
+                                </a>Регулярные выражения
+                            </div>
+                            <div class="col-sm-2 crop">
+                                <img src="../static/imgs/mock_nexus.jpg" class="img-responsive">
+                                mock_nexus
+                            </div>
+                            <div class="col-sm-2 crop">
+                                <img src="../static/imgs/Wiki.JPG" class="img-responsive">
+                                Wiki
+                            </div>
+                            <div class="col-sm-2 crop">
+                                <a href="#">
+                                    <img src="../static/imgs/flat,800x800,070,f.jpg" class="img-responsive">
+                                </a>Font Awesome Cheatsheet
+                            </div>
+                            <div class="col-sm-2 crop">
+                                <a href="#">
+                                <img src="../static/imgs/landscape.jpg" class="img-responsive">
+                                </a>Телефоны дежурных служб
+                            </div>
+                            <div class="col-sm-2 crop">
+                                <a href="#">
+                                <img src="../static/imgs/landscape-2.jpg" class="img-responsive">
+                                </a>Миграция филиалов
+                            </div>
+                        <!--/div>
+                        <div class="row"-->
+                            <div class="col-sm-2 crop">
+                                <img src="../static/imgs/default-photo-user.png" class="img-responsive">
+                                User-photo
+                            </div>
+                            <div class="col-sm-2 crop">
+                                <img src="../static/imgs/templatemo_menu_01_b.jpg" class="img-responsive">
+                                templatemo_menu_01
+                            </div>
+                        </div>
+                    </div><!-- end of  panel-body  -->
+                </div> <!-- end of infoBoardPanel -->
+            </section>
+
+        </div> <!-- end of mainContent col -->
+    </div> <!-- end of basic content -->                
+    {% endblock %}

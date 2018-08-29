@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block additional_css %}
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+{% endblock %}
+{% block app_css %}{% endblock %}
+
+{% block content %}
+    <header>
+         <!-- main Menu navigation bar -->
+            <nav class="navbar navbar-default navbar-fixed-top"> 
+                
+                <div class="navbar-header">
+                    <a class="brand-logo" href="{% url 'main' %}"> 
+                        <img src="{% static 'imgs/logos/AkmLogo3D-black.png' %}" 
+                        class="img-responsive" alt="Главная" />
+                    </a>
+                </div> <!-- end navbar-header -->
+                            
+                <div class="collapse navbar-collapse">
+                    <!-- site global search panel -->
+                    <form id="searchGlobal" role="search" >
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Поиск...">
+                            <button id="btnSearchGlobal" type="submit" class="btn btn-md">
+                                <span class="glyphicon glyphicon-search" 
+                                        aria-hidden="true">
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                    <!-- main menu -->
+                    <ul id="nav-menu" class="nav navbar-nav">
+                        <!--li class="active"><a href="../templates/main.html">
+                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                Главная</a></li-->                
+                        <li><a href="../wiki/templates/wiki.html">
+                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                            Wiki</a></li>
+                        <li><a href="#logs">
+                            <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                            Журналы</a></li>
+                        <li><a href="#tasks">
+                            <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+                            Задачи</a></li>
+                        <li><a href="#contacts">
+                            <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                            Контакты</a></li>
+                        <li><a href="#" data-toggle="collapse" data-target="#navExtMenu">
+                            Далее...</a></li>
+                    </ul>
+                    <!-- Options button -->
+                    <div id="nav-options" class="btn-group pull-right hidden-xs">
+                        <button type="button" 
+                            class="btn btn-primary dropdown-toggle user-profile" 
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            {{ user.get_username }}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#private">Личное</a></li>
+                            <li class="disabled"><a href="#preferences">Настройки</a></li> 
+                            <li><a href="#profile">Профиль</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{% url 'logout' %}">
+                                <span class="logout glyphicon glyphicon-off" aria-hidden="true">
+                                </span> Выход</a>
+                            </li>
+                        </ul>
+                        <!-- hamburger button to collapse/expand ext.menu bar --> 
+                        <button type="button" class="btn btn-primary btn-md toggleNavExtMenu" 
+                            data-toggle="collapse" data-target="#navExtMenu">
+                            <span class="glyphicon glyphicon-menu-hamburger" 
+                                aria-hidden="true"></span>
+                        </button>
+                    </div> <!-- end of nav-options -->
+                </div> <!-- end of navbar-collapse -->
+                    
+                <!-- breadcrumb -->
+                <ol id="navMenuBreadcrumb" class="breadcrumb">
+                        <span id="navMenuBreadcrumbTitle">Информационный сайт&nbsp; &nbsp;</span>
+                        <span class="glyphicon glyphicon-th" aria-hidden="true">&nbsp;</span>
+                        <li><a href="{% url 'main' %}">Главная</a></li>
+                    </ol>
+                <!-- end of breadcrumb -->
+        
+                <!-- ext menu -->
+                <div id="navExtMenu" class="collapse nav" >
+                    <!-- ext-menu-header -->
+                    <div id="navExtMenuHeader"> 
+                              <h4 class="text-white">ВСЕ РАЗДЕЛЫ...</h4>
+                            <img src="{% static 'imgs/logos/welcome96x96.png' %}" />
+                    </div>
+                    
+                    <!-- ext-menu-content -->
+                    <div id="navExtMenuContent">
+                        <!-- ext-menu-basic-content -->
+                        <ul class="basic-content list-inline list-unstyled">
+                            <li>
+                            <a href="../wiki/templates/wiki.html" role="button" class="btn">
+                                <h4>WIKI</h4>
+                                <h5>
+                                    База знаний отдела
+                                    по сопровождаемым системам
+                                </h5>
+                            </a></li> 
+                            <li><a href="#logs" role="button" class="btn">
+                                <h4>ЖУРНАЛЫ</h4>
+                                <h5><span>
+                                    Работа с информацией 
+                                    в форме журналов</span>
+                                </h5>
+                            </a></li>
+                            <li><a href="#tasks" role="button" class="btn">
+                                <h4>ЗАДАЧИ</h4>
+                                <h5>
+                                    Регламентные процедуры 
+                                    в сопровождамых системах
+                                </h5>
+                            </a></li>
+                            <li><a href="#wiki" role="button" class="btn">
+                                    <h4>КОНТАКТЫ</h4>
+                                    <h5>
+                                        База знаний отдела
+                                        по сопровождаемым системам
+                                    </h5>
+                            </a></li> 
+                            <li><a href="#logs" role="button" class="btn">
+                                    <h4>НОВОСТИ</h4>
+                                    <h5>
+                                        Работа с информацией 
+                                        в форме журналов
+                                    </h5>
+                            </a></li>
+                            <li><a href="#tasks" role="button" class="btn">
+                                    <h4>FAQ</h4>
+                                    <h5>
+                                        Регламентные процедуры 
+                                        в сопровождамых системах
+                                    </h5>
+                            </a></li>
+                            <li><a href="#adm" role="button" class="btn">
+                                <h4>АДМИНКА</h4>
+                                <h5>
+                                    Администрирование сайта
+                                </h5>
+                            </a></li>   
+                        </ul> <!-- end of basic-content -->    
+                        <!-- ext-menu-side-content -->
+                        <ul class="secondary-content list-unstyled">
+                            <li><a href="#" role="button" class="btn btn-lg btn-info btn-block">Личный кабинет</a>
+                            </li><li><a href="#" role="button" class="btn btn-lg btn-primary btn-block">Настройки</a>
+                            </li><li><a href="#" role="button" class="btn btn-lg btn-primary btn-block">Профиль</a>
+                            </li><li><a id="userLogout" href="{% url 'logout' %}" role="button" class="btn btn-lg btn-primary btn-block">Выйти</a>
+                            </li>
+                        </ul> <!-- end of secondary-content -->
+                    </div> <!-- end of navExtMenuContent -->
+                </div> <!-- end of navExtMenu-->
+            </nav> <!-- End of main menu-->
+        </header>    
+
+        {% block main %}{% endblock %}
+    
+{% block footer %}
+<footer>
+<div class="container-fluid">
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="col-sm-4">
+               <img src="{% static 'imgs/logos/logo.png' %}" class="img-responsive">
+            </div>
+            <div class="col-sm-4">
+               <img src="{% static 'imgs/logos/djangopython.jpg' %}" class="img-responsive">
+            </div>
+            <div class="col-sm-4">
+               <img src="{% static 'imgs/logos/bs.png' %}" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-offset-1 col-sm-2">
+        <h5>О проекте</h5>
+        <ul class="list-unstyled">
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Сотрудники</a></li>
+            <li><a href="#">Документация</a></li>                                        
+        </ul>
+    </div>
+    <div class="col-sm-2">
+        <h5>Поддержка</h5>
+        <ul class="list-unstyled">
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Условия</a></li>
+            <li><a href="#">Помощь</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-3">
+        <h5>Адрес</h5>
+        <address>
+            <strong>Name, Inc.</strong><br>
+            Адрес<br>
+            <abbr title="Телефон">P:</abbr>(123) 456-789
+        </address>
+    </div>
+</div>
+</footer>
+{% endblock %}
+{% endblock %}

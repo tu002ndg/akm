@@ -6,7 +6,7 @@ from django.template import RequestContext
 
 @login_required
 def index(request):
-    return render(request,'index.html')
+    return render(request,'mainpage.html')
 
 
 def log_out(request):

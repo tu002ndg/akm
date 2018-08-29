@@ -1,8 +1,7 @@
 /* @charset "uff-8"; */
 body {
-
     padding-top:  9rem;
-    background-color: #E2E4E6; /*wheat; /* #D6DADC; /* bisque; */
+    background-color: #E2E4E6; /* #b1aeae; /*wheat; /* #D6DADC; /* bisque; */
     color: black;
     font-family:inherit;
 }
@@ -19,7 +18,9 @@ background-color: #006A9C; /* #0079BF; */
    height: 5.5rem;
   }
 
-#navMenuInfoBar {
+/* #navMenuInfoBar {*/
+
+header .breadcrumb {    
     height: 2em;
     padding: 0.3em 1em 0.5em 1em;
     margin: 0 0.8em 0.4em 0.8em;
@@ -27,11 +28,13 @@ background-color: #006A9C; /* #0079BF; */
     border-radius: 0.3em;
    }
 
+/*
 #navMenuInfoBar h4 {
     margin-top: 0;
     color: black;
     font-size: 1em;
 }
+
 
 #navMenuInfoBar h4 #navMenuInfoBarTitle {
     font-style: italic;
@@ -43,7 +46,7 @@ background-color: #006A9C; /* #0079BF; */
     color: black;
   } 
 
-
+*/
 
 .brand-logo img {
     height: 4rem;
@@ -65,16 +68,17 @@ nav form#searchGlobal .input-group .form-control:first-child {
 
 nav form#searchGlobal input {
     font-size: 1.2em;
-    min-width: 15em;
+    min-width: 12em;
+    margin-left: 0.3em; 
 }
 
-nav form#searchGlobal #btn-search-global {
+nav form#searchGlobal #btnSearchGlobal {
     z-index: 99;
     position: absolute;
-    right: 0.15em;
+    right: 0em;
     height: 85%;
     top: 0.2em;
-    margin-top: 0em;
+    margin: 0em -0.2em 0 0;
     border-radius: 0.5em;
     background-color: #006A9C; 
     color:white;
@@ -110,8 +114,9 @@ nav #nav-menu {
 
 /* navigation on main menu */
 
-.navbar-default .navbar-nav > .active > a {
-    background-color: transparent;
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:visited {
+    background-color:  #006A9C;
     color: white;
     /*
     padding-bottom: 0.3em;
@@ -146,8 +151,114 @@ nav #nav-menu {
     border-radius: 0.3em;
 }
 
+/*
+#content-search-side-panel {
+    position: fixed;
+    padding: 0.5em 1em 0.5em 2em;
+    z-index: 99;
+    height: 20em;
+    background:#b1aeae;
+
+}
+*/
+
+/* aside panels */
+#asideContent {
+  /*   
+    position: fixed;
+    z-index: 99;
+   height: 100%; */
+   padding: 0.5em 0.5em 0.5em 2em;
+   /*background-color:#b1aeae; */
+   
+   }
+   
+#asideContentExt {
+    
+    padding: 0 1em 0 0;
+    margin-top: 0.5em;
+    }
+
+#content-nav-side-panel {
+    z-index: 99;
+   }
+
+   /*
+nav form#searchLocal {
+    float: left;
+    padding: 0.7em 0.3em 0.3em 0;
+}
+*/
+
+#asideContent form#searchLocal .input-group .form-control:first-child {
+    border-radius: 0.5em;
+}
+
+#asideContent form#searchLocal input {
+    font-size: 1.2em;
+    margin-top: 0.5em; 
+}
+
+#asideContent form#searchLocal #btnSearchLocal {
+    z-index: 99;
+    position: absolute;
+    right: 0.1em;
+    height: 70%;
+    top: 0.75em;
+    margin-top: 0em;
+    border-radius: 0.5em;
+    background-color: #337AB7; 
+    color:white;
+}
+
+#mainContent #infoBoard .row .col-sm-2 {
+   min-height: 12em; 
+}
+
+.crop img {
+    max-height: 7em;
+    overflow: hidden;
+}
+
+/*
+#infoBoard .panel-body .row >div {
+    text-align: center;
+}
+
+#infoBoard .panel-body .row >div img {
+    margin: auto;
+}
+*/
 
 
+  /* main content */
+
+ #mainContent .panel-body .row >div {
+    text-align: center;
+}
+
+#mainContent .panel-body .row >div img {
+    margin: auto;
+}
+
+#mainContent .panel-body {
+    font-size: normal;
+ }
+
+ #mainContent #infoBoard .panel-body {
+    font-size: smaller;
+ }
+
+
+#mainContent {
+    /*
+    float: right;
+    width: 75%;
+    */
+    padding: 0.5em 2em 0.5em 1em;
+    background-color: #E2E4E6;
+}
+ /* */
 #navExtMenuHeader {
     float: left;
     font-family: cursive;
@@ -155,6 +266,15 @@ nav #nav-menu {
     color: white;
     background-color: transparent;
     
+}
+
+#navExtMenuHeader  {
+  
+    text-align: center;
+}
+#navExtMenuHeader img {
+    background-color: #E6E6E6;
+    border-radius: 1em;
 }
 
 #navExtMenuContent {
@@ -227,6 +347,61 @@ nav #nav-menu {
     background-color:   #00695C;
     background-color:   #006A9C;
 }
+
+
+section#newsletter {
+    border-top: 1px solid #E0E0E0;
+    padding-top: 3.2em;
+    margin-top: 2em;
+  }
+  
+  section#newsletter h4 {
+    padding: 1em;
+  }
+  
+  section#newsletter form {
+    padding: 1em;
+    margin-top: 2em;
+    margin-bottom: 5.5em;
+  }
+
+
+/* footer */
+footer {
+    background-color: #b1aeae;/* #191919; */
+    color: #191919 /* #ADADAD; */
+
+    }
+
+ 
+
+footer h5 {
+    margin-top: 1.5em;
+    font-weight: bold;
+ }
+   
+  footer img {
+    margin-top: 1.5em;
+    padding: 1em;
+    height: 10%;
+  }
+  
+  
+  footer ul {
+    margin-bottom: 1.5em;
+  }
+  
+  footer a {
+    font-weight: 300;
+    color: #5A5A5A;
+  }
+  
+  footer a:hover {
+    text-decoration: none;
+    color: #FFF;
+  }
+
+ 
 
 /*
 #navbar-app-name  {

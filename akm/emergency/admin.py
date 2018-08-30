@@ -1,3 +1,9 @@
 from django.contrib import admin
+from akm.emergency.models import Emergency
 
-# Register your models here.
+class EmergencyAdmin(admin.ModelAdmin):
+    list_display = ('contact','phone',)
+
+admin.site.register(Emergency)
+
+

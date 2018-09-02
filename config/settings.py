@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'akm.main',
     'akm.emergency',
+    'akm.wiki',
 ]
 
 MIDDLEWARE = [

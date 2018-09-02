@@ -1,0 +1,36 @@
+BEGIN;
+--
+-- Create model Group
+--
+CREATE TABLE "wiki_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "created" datetime NOT NULL, "title" varchar(100) NOT NULL UNIQUE, "description" text NOT NULL, "author_id" integer NOT NULL REFERENCES "auth_user" ("id"));
+--
+-- Create model Pattern
+--
+CREATE TABLE "wiki_pattern" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "ordnum" integer NOT NULL, "group_id" integer NOT NULL REFERENCES "wiki_group" ("id"));
+--
+-- Create model Section
+--
+CREATE TABLE "wiki_section" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(100) NOT NULL UNIQUE, "description" text NOT NULL);
+--
+-- Add field section to pattern
+--
+ALTER TABLE "wiki_pattern" RENAME TO "wiki_pattern__old";
+CREATE TABLE "wiki_pattern" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "ordnum" integer NOT NULL, "group_id" integer NOT NULL REFERENCES "wiki_group" ("id"), "section_id" integer NOT NULL REFERENCES "wiki_section" ("id"));
+INSERT INTO "wiki_pattern" ("section_id", "group_id", "ordnum", "id") SELECT NULL, "group_id", "ordnum", "id" FROM "wiki_pattern__old";
+DROP TABLE "wiki_pattern__old";
+CREATE INDEX "wiki_group_author_id_85773ba5" ON "wiki_group" ("author_id");
+CREATE INDEX "wiki_pattern_group_id_1196772d" ON "wiki_pattern" ("group_id");
+CREATE INDEX "wiki_pattern_section_id_fbdf8b37" ON "wiki_pattern" ("section_id");
+--
+-- Add field sections to group
+--
+ALTER TABLE "wiki_group" RENAME TO "wiki_group__old";
+CREATE TABLE "wiki_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "created" datetime NOT NULL, "title" varchar(100) NOT NULL UNIQUE, "description" text NOT NULL, "author_id" integer NOT NULL REFERENCES "auth_user" ("id"));
+INSERT INTO "wiki_group" ("author_id", "created", "title", "description", "id") SELECT "author_id", "created", "title", "description", "id" FROM "wiki_group__old";
+DROP TABLE "wiki_group__old";
+CREATE INDEX "wiki_group_author_id_85773ba5" ON "wiki_group" ("author_id");
+--
+-- Alter unique_together for pattern (1 constraint(s))
+--
+CREATE UNIQUE INDEX "wiki_pattern_group_id_ordnum_fe4f1107_uniq" ON "wiki_pattern" ("group_id", "ordnum");
+COMMIT;

@@ -94,19 +94,23 @@
             <!-- hot-phone-side-pane -->
             <div id="hotPhoneSidePanel" class="panel panel-danger">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Экстренные телефоны</h3>
+                    <h3 class="panel-title">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>&nbsp;                        
+                        Экстренные телефоны</a>
+                    </h3>
                 </div>
                 <div class="panel-body">
-                    01 - пожарная охрана
-                    02 - милиция
-                    03 - скорая медицинская помощь
-                    04 - "Мосгаз"
-                    051 - Московская служба психологической помощи населению
-                     (многоканальный круглосуточный телефон доверия)
-                    (495) 937-99-11 - служба спасения
-                    (495) 261-35-42, (495) 261-63-66 - водопровод, канализация
-                     (аварии на городских подземных коммуникациях)
-                    (495) 688-22-52 - бюро регистрации несчастных случаев
+                    <ul class="list-unstyled">
+                    {% for item in emergency %}
+                        <li>{{ item.contact }}</li>
+                        <li>
+                            <ul class="list-unstyled">
+                                <li>{{ item.phone }}</li>
+                            </ul>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 </div>
             </div> <!-- end of hotPhoneSidePanel -->
             <!-- usefull-links-side-panel -->
@@ -114,7 +118,7 @@
                     <div class="panel-heading">
                                 <h3 class="panel-title">
                                     <a href="#usefull-links">
-                                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;
+                                        <span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;
                                     Полезные ссылки</a>
                                 </h3>
                     </div>

@@ -11,10 +11,10 @@
     <section id="intro-header">
       <div class="wrap-headline">
         <!--h1 class="text-center">AskMe</h1-->
-      <h1  class="text-center">
-        <img src="{% static 'imgs/logos/AkmLogo3D-black.png' %}">
-      </h1> 
-      <hr>
+        <h1  class="text-center">
+          <img src="{% static 'imgs/logos/AkmLogo3D-blue.png' %}">
+        </h1> 
+        <hr>
         <!-- login form -->
         <form action="" method="POST" class="form-inline text-center hidden-element">
           {% csrf_token %}
@@ -33,6 +33,6 @@
           <button type="submit" class="btn btn-default ">Вход</button>
           <input type="hidden" name="next" value="{{ next|escape }}">
         </form>
-      </div>
+      </div> <!-- end of wrap-headline -->
     </section>
 {% endblock %}

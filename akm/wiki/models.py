@@ -100,8 +100,10 @@ class Category(models.Model):
         ordering=['importance','title']
         unique_together = ['part','title']
 
+
+
 ''' Статья Wiki '''
-STATUS_CHOICES = (('1', 'Черновик'),('2', 'Опубликована'),('3', 'Архив'),)
+STATUS_CHOICES = ((0, 'Черновик'),(1, 'Опубликована'),(2, 'Архив'),)
 
 class Article(models.Model):    
     objects = models.Manager()
@@ -109,39 +111,48 @@ class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True,
     verbose_name='создана')
     modified = models.DateTimeField(auto_now=True,
-    verbose_name='изменена')    
+    verbose_name='изменена')
+    modified_by = models.ForeignKey('auth.User', verbose_name='редактор',
+    related_name='+')    
     status = models.IntegerField(choices = STATUS_CHOICES, 
-    default = 1, verbose_name='статус')
+    default = 0, verbose_name='статус')
     view_count = models.IntegerField(default = 0, verbose_name="просмотрена")
     category = models.ForeignKey(Category, verbose_name="категория")
     title = models.CharField(max_length=100,verbose_name='Название статьи')
     abstract = models.TextField(verbose_name='краткое содержание (резюме)')
     slug = models.SlugField(max_length = 100, unique=True)
     uploaded = models.BooleanField(verbose_name="загружена?", default = False)
+    
     def __str__(self):
         return self.title
+    
     class Meta:
-        verbose_name='статья'
+        verbose_name='статью'
         verbose_name_plural='статьи'
         ordering=['category','-modified']
         unique_together = ['category','title']
+
     def save(self, *args, **kwargs):
         super(Article, self).save(*args, **kwargs)
         if not self.slug:
-            self.slug = slugify(self.category.slug) + "-" + str(self.id)
+            self.slug = '{0}/{1}/{2}'.format(self.category.part.slug, 
+            self.category.slug, str(self.id))
             self.save()
+        
 
 ''' Содержание (секции) статьи '''
 class Detail(models.Model):
     objects = models.Manager()
-    article = models.ForeignKey(Article, verbose_name="статья")
+    article = models.ForeignKey(Article, verbose_name="статья", 
+    on_delete = models.CASCADE)
     ordnum = models.IntegerField(verbose_name="#")
-    title = models.CharField(max_length = 100, verbose_name="заголовок")
+    title_section = models.CharField(max_length = 100, verbose_name="заголовок")
     markdown_content = models.TextField(verbose_name="содержание")
-    html_content = models.TextField(verbose_name="html", editable = False)
-    file_to=models.FileField(verbose_name = "файл")
+    html_content = models.TextField(verbose_name="html") #, editable = False)
+    file_to=models.FileField(verbose_name = "файл", blank = True, 
+    upload_to="wiki/article", default = '')
     def __str__(self):
-        return self.title
+        return self.title_section
     class Meta:
         verbose_name='содержание секции'
         verbose_name_plural='содержание секции'

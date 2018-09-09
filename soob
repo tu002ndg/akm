@@ -1,0 +1,13 @@
+BEGIN;
+--
+-- Alter field status on article
+--
+ALTER TABLE "wiki_article" RENAME TO "wiki_article__old";
+CREATE TABLE "wiki_article" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "status" integer NOT NULL, "created" datetime NOT NULL, "modified" datetime NOT NULL, "view_count" integer NOT NULL, "title" varchar(100) NOT NULL, "abstract" text NOT NULL, "slug" varchar(100) NOT NULL UNIQUE, "uploaded" bool NOT NULL, "author_id" integer NOT NULL REFERENCES "auth_user" ("id"), "category_id" integer NOT NULL REFERENCES "wiki_category" ("id"), "modified_by_id" integer NOT NULL REFERENCES "auth_user" ("id"));
+INSERT INTO "wiki_article" ("slug", "modified_by_id", "abstract", "status", "author_id", "uploaded", "modified", "id", "view_count", "created", "title", "category_id") SELECT "slug", "modified_by_id", "abstract", "status", "author_id", "uploaded", "modified", "id", "view_count", "created", "title", "category_id" FROM "wiki_article__old";
+DROP TABLE "wiki_article__old";
+CREATE UNIQUE INDEX "wiki_article_category_id_title_11707e4e_uniq" ON "wiki_article" ("category_id", "title");
+CREATE INDEX "wiki_article_author_id_ff87219f" ON "wiki_article" ("author_id");
+CREATE INDEX "wiki_article_category_id_18cb89c0" ON "wiki_article" ("category_id");
+CREATE INDEX "wiki_article_modified_by_id_6f8b1946" ON "wiki_article" ("modified_by_id");
+COMMIT;

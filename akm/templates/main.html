@@ -36,7 +36,7 @@
                         <!--li class="active"><a href="../templates/main.html">
                                 <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                                 Главная</a></li-->                
-                        <li><a href="../wiki/templates/wiki.html">
+                        <li><a href="{% url 'wiki' %}">
                             <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
                             Wiki</a></li>
                         <li><a href="#logs">
@@ -83,7 +83,9 @@
                 <ol id="navMenuBreadcrumb" class="breadcrumb">
                     <span id="navMenuBreadcrumbTitle">Информационный сайт&nbsp; &nbsp;</span>
                     <span class="glyphicon glyphicon-th" aria-hidden="true">&nbsp;</span>
-                    <li><a href="{% url 'main' %}">Главная</a></li>
+                    {% for akm_map in akm_maps %}
+                        <li><a href="{% url akm_map.url %}">{{akm_map.name}}</a></li>
+                    {% endfor %}
                 </ol>
                 <!-- end of breadcrumb -->
         
@@ -100,7 +102,7 @@
                         <!-- ext-menu-basic-content -->
                         <ul class="basic-content list-inline list-unstyled">
                             <li>
-                            <a href="../wiki/templates/wiki.html" role="button" class="btn">
+                            <a href="{% url 'wiki' %}" role="button" class="btn">
                                 <h4>WIKI</h4>
                                 <h5>
                                     База знаний отдела

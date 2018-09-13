@@ -1,0 +1,66 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+{% block title %}
+    AkM | Wiki
+{% endblock %}
+{% block main %}
+<!-- ================================================================================= -->
+<!--                                 WIKI                                             -->
+<!-- ================================================================================= -->
+<!-- basic Content -->
+<div id="basicContent" class ="row">
+        <!-- asideContent col -->
+        <aside id="asideContent" class="col-sm-2 text-left">
+            
+            <div id="content-nav-side-panel" class="panel panel-primary" 
+                data-spy="affix" data-offset-top="30">
+                <div class="panel-heading" >
+                    <div class="panel-title">             
+                        <span class="glyphicon glyphicon-home" 
+                            aria-hidden="true"></span> <a href="#top">&nbsp;Wiki</a>                        
+                    </div>
+                </div>
+                <!-- Навигационное меню по разделам контента -->
+                <div id="navContentSidePanel" class="panel-body">
+                    <ul class="list-unstyled">
+                            <li class="active"><a href="#top">Разделы</a></li>
+                            <li><a href="#category">Категории</a></li>
+                            <li><a href="#article">Статьи</a></li>
+                            <li><a href="#pattern">Шаблоны</a></li>
+                    </ul>
+                </div>
+            </div> <!-- end of navContentSidePanel -->
+        </aside> <!-- end of asideContent col -->
+    
+   
+        <!-- main content -->
+        <div id="mainContent" class="col-sm-9 col-sm-1-offset">
+            <!--data-spy="scroll" data-target="#nav-content-side"--> 
+            <!-- Список баз знаний (в разрезе сопровождаемых систем) --> 	  
+            <section id="wikiPart"> 
+                <!-- Разделы Wiki -->
+                <div class="panel panel-info">
+                    <div class="panel-heading"  >
+                        <div class="panel-title">
+                            <span class="glyphicon glyphicon-globe" 
+                                aria-hidden="true"></span>&nbsp;Разделы Wiki
+                        </div>                        
+                    </div>
+                    <div class="panel-body">
+                        <div class="row crop"></div>                        
+                        {% for part in wiki_parts %}
+                            <div class="col-sm-3 crop">
+                                <a href="#">
+                                    <img src="{{part.logo.url}}" class="img-responsive">
+                                </a>
+                                {{part.title}}
+                            </div> 
+                        {% endfor %}
+                        </div> 
+                    </div>  <!-- end of panel-body -->
+                </div> <!-- end of panel -->
+            </section> <!-- end of wikiPart section panel -->
+
+        </div> <!-- end of mainContent col -->
+    </div> <!-- end of basic content -->                
+    {% endblock %}

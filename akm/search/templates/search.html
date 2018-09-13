@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Поиск</title>
+</head>
+<body>
+    <form method="get" action="/search/">
+        <p><label for="id_q">Поиск:</label>
+           <input type="text" name="q" id="id_q" value="{{ query }}"/>
+           <input type="submit" value="Go"/></p>
+    </form>
+    {% if results %}
+        <p>Вы искали .. "{{ query }}"; результаты поиска отображены ниже ...</p>
+        <ul>
+            {% for page in results %}
+                <li><a href="{{ page.get_absolute_url }}">
+                    {{ page.title}}
+                </a></li>
+                {{ page.abstract|safe}}
+            {% endfor %}
+        </ul>
+    {% else %}
+        {% if query %}
+            <p>Поиск "{{ query }}" не дал результата</p>
+        {% else %}
+            <p>Введите текст для поиска (выше), и нажмите "Go"</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

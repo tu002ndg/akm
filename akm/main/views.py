@@ -7,8 +7,10 @@ from akm.emergency.models import Emergency
 
 @login_required
 def index(request):
+    maps =[{"url":'main', "name":'Главная'}]
     list_emergency = Emergency.objects.all()
-    return render(request,'mainpage.html',{"emergency":list_emergency})
+    return render(request,'mainpage.html',{"emergency":list_emergency, 
+    "akm_maps":maps})
 
 
 

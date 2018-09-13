@@ -17,10 +17,23 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth.views import login, logout
 from akm.main.views import log_out
+from config import settings
+#from django.contrib.staticfiles.views import serve
+from django.views.static import serve
+from django.conf.urls.static import static
+admin.site.site_header = "Aдминистрирование сайта AskMe"
+from akm.search.views import search as search_views
+from akm.search import views as search_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^tiny_mce/(?P<path>.*)$', serve,
+        {'document_root': settings.TINY_MCE}),
+    url(r'^search/$', search_views.search),
+    url(r'^wiki/', include('akm.wiki.urls')),
     url(r'^login/',  login, name = "login"),
     url(r'^logout/', log_out, name = "logout"),
     url(r'^',  include('akm.main.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

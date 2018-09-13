@@ -38,7 +38,7 @@ class PartAdmin(admin.ModelAdmin):
         ('Примечание', 
         {'fields': ('description',)}),
         ('дополнительно',
-        {'fields': (('importance','logo'),)}),
+        {'fields': (('pattern','importance','logo'),)}),
     )
     inlines = (CategoryInlineAdmin,)
 
@@ -51,7 +51,7 @@ class PartAdmin(admin.ModelAdmin):
                 instance.save()
 
     def save_model(self, request, obj, form, change):
-        if (not obj.author):
+        if not hasattr(obj,'author'):
             obj.author = request.user
         obj.save()
 
@@ -82,7 +82,7 @@ class PartListFilter(admin.SimpleListFilter):
         human-readable name for the option that will appear
         in the right sidebar.
         """
-        return Part.objects.order_by('id').values_list('id','title')
+        return Part.objects.order_by('importance').values_list('id','title')
 
     def queryset(self, request, queryset):
         """
@@ -102,7 +102,8 @@ from django.forms.models import BaseInlineFormSet
 
 class DetailFormSet(BaseInlineFormSet):
 
-    GROUP_CODE = 3
+    part = Part.objects.get(pk=1)
+    GROUP_CODE = part.pattern
 
     def __init__(self, *args, **kwargs):
         super(DetailFormSet, self).__init__(*args, **kwargs)
@@ -123,7 +124,7 @@ class DetailInlineAdmin(admin.StackedInline):
      
     formset = DetailFormSet
     EXTRA_NUM = Section.objects.filter(group=formset.GROUP_CODE).count()
-
+    
 
     def get_extra(self, request, obj=None, **kwargs):
         if obj:
@@ -135,27 +136,27 @@ class DetailInlineAdmin(admin.StackedInline):
     #    return False
 
     fields = (('ordnum','title_section'),
-    'markdown_content', 'file_to','html_content')
+    'html_content', 'file_to',)
     
-
+from django.forms import Textarea
 class ArticleAdmin(admin.ModelAdmin):
-    list_display=('title','category','slug','author','modified_by')
+    list_display=('title','category','slug','author')
     fields = (('status','view_count',),
-    'category', 'title', 'abstract', ('uploaded',),)
-    search_fields = ('title',)
+    'category', 'title','abstract',('uploaded',))
+    search_fields = ('title','abstract')
     list_filter =  (PartListFilter,'status',)
 
     inlines = (DetailInlineAdmin,)
     
-    def save_formset(self, request, form, formset, change):
-        instances = formset.save(commit=False)
-        for instance in instances:
-            if isinstance(instance, Detail): #Check if it is the correct type of inline
-                instance.html_content = instance.markdown_content
-                instance.save()
+    #def save_formset(self, request, form, formset, change):
+    #    instances = formset.save(commit=False)
+    #    for instance in instances:
+    #        if isinstance(instance, Detail): #Check if it is the correct type of inline
+    #            instance.html_content = instance.markdown_content
+    #            instance.save()
 
     def save_model(self, request, obj, form, change):
-        obj.modified_by =  request.user
+        #obj.modified_by =  request.user
         if not hasattr(obj,'author'):
              obj.author = request.user
         obj.save()

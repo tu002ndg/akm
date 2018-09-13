@@ -19,6 +19,7 @@ STATIC_DIR = os.path.join(BASE_DIR,'akm/static')
 # folder for storing uploaded files
 MEDIA_ROOT = os.path.join(BASE_DIR,'akm/uploads')
 
+TINY_MCE = os.path.join(STATIC_DIR,'tinymce/jscripts/tyny_mce')
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,7 +31,7 @@ SECRET_KEY = 'ju5$0&kba26o9db00k$$@)sm5y#gmo&$%^5#(8b1ioe5&3d&p('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','192.168.1.70',]
+ALLOWED_HOSTS = ['localhost','192.168.1.70','10.0.0.2',]
 
 
 # Application definition
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'akm.main',
+    'akm.search',
     'akm.emergency',
     'akm.wiki', 
   
@@ -71,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static',
             ],
         },
     },
